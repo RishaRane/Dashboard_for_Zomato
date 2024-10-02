@@ -1,0 +1,418 @@
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.28.0.12:8501
+  External URL: http://34.19.55.119:8501
+
+2024-10-02 13:34:51.252 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 37, in <module>
+    df1 = df[df['Name'].isin(res_name)]
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/frame.py", line 4102, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Name'
+2024-10-02 14:45:12.358 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1942, in _agg_py_fallback
+    res_values = self._grouper.agg_series(ser, alt, preserve_dtype=True)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/ops.py", line 864, in agg_series
+    result = self._aggregate_series_pure_python(obj, func)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/ops.py", line 885, in _aggregate_series_pure_python
+    res = func(group)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 2454, in <lambda>
+    alt=lambda x: Series(x, copy=False).mean(numeric_only=numeric_only),
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/series.py", line 6549, in mean
+    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py", line 12420, in mean
+    return self._stat_function(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py", line 12377, in _stat_function
+    return self._reduce(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/series.py", line 6457, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 404, in new_func
+    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 720, in nanmean
+    the_sum = _ensure_numeric(the_sum)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 1701, in _ensure_numeric
+    raise TypeError(f"Could not convert string '{x}' to numeric")
+TypeError: Could not convert string '3003003004003004003003503001503003003503004003003003002504003005005004504004002504005003002004004005050020020035060025040040040025010040040030040020040040050500200600200200400350600250500400300400300500400350500350300150200300300150650400300300400300400150200300250500300400400500150650150300200500300350350400350400300500250400400400300400200500750500500400400200400300300500500400400200400250750400300500400400300300500400400250300400400400200400200250350400200500400200250300100400200300350400400200500300300400500600400250600400400300300450150400500500450300500600500400450400250300300400500250400500500400400300400300600500700600450300600400200500500400500500350350500450400500400350400400300600200300300500300300400400500300300400400350600200450500500400500300200400500300500300300400200300250400400400300500200300400500300350350300600600300400300400200200250300350400400250400200200250400100500400300400300350400200600250400600400500350200200200350400400300500250400200300300600200400350500400250200400200350200300500400500400300300500500250300400350500100400500400400300500200150350500100400300250250500400200100300400200150400500600300500560400400300500400150400400350500500300300400400400500500300200400600500300100350400500300150400400400400400500200600400600300500300500600400500400500400400250300500300200350300100450600200500500400250400300200350400500400300600360450300300400500400100100200500500500400350500350200450400150400400300300400500200350300300300500650350600500200500150250350400350350400300350500300450500200200300350300500300300500650350600600800150500500350500500450500400400150200400350300200350600250500200300500500400400500200200350400300200500400350600250500450800100400400200500600150500450250400500300300500400400600400150250500400400300500200350500600400400300200400400500500200350400500200250350500500400600150250500400500500500400100400200400300350500200500400500500400150600200400250300200400300200350500400500200100500200500200400400450500400600400350300400600400300600300300200300300450600200300400400400200200400500300200200400200300600500350300600300450400200350400450350500400400400400300600400400300500600300200300300200400400400400500400200200300500600300200400200200300300500300500500300200400400500350400400600300400300300400400600300300450400200200300600200200300400500500400400400200300500600400400200200600300200300300600300300450200400500400500350200500450350400400600300400400300400400600500200300300300200500400200400500400400400200300600400200300300300500350350200350150300500300200300500150400250350400200200250350400200200500100150200300600250500300300200150400500350300400250500300150500350200300500400300400500500500400400300250400250300300400200350300500500400500450500500600500400300250400300200400500250300300400300500250300400400150350400500350200200250300400400400200400200250300500100150400300300350500350400200300450300500500200300450300500500450200300500450450500600300400500300400200300100500300300200450400600200300900400500600500100300360400600300300200450300500300300400500500150200200400300400300500200400250500300500150300150400400400200200250300350400200200250250150200350100300150300200500250400400600400300400500750500400300600300300500500750400400300500400600500400600300600300300500500400500500500250450400500300500600450400600400400150450600500250500500500300150500400250400450150450250400400300500600500700250500400600500500500600500300600600' to numeric
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 75, in <module>
+    cost_df = filters_df.groupby(by = 'rest_type', as_index = False)['approx_cost(for two people)'].mean()
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 2452, in mean
+    result = self._cython_agg_general(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1998, in _cython_agg_general
+    new_mgr = data.grouped_reduce(array_func)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/internals/base.py", line 367, in grouped_reduce
+    res = func(arr)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1995, in array_func
+    result = self._agg_py_fallback(how, values, ndim=data.ndim, alt=alt)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1946, in _agg_py_fallback
+    raise type(err)(msg) from err
+TypeError: agg function failed [how->mean,dtype->object]
+2024-10-02 14:46:05.723 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1942, in _agg_py_fallback
+    res_values = self._grouper.agg_series(ser, alt, preserve_dtype=True)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/ops.py", line 864, in agg_series
+    result = self._aggregate_series_pure_python(obj, func)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/ops.py", line 885, in _aggregate_series_pure_python
+    res = func(group)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 2454, in <lambda>
+    alt=lambda x: Series(x, copy=False).mean(numeric_only=numeric_only),
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/series.py", line 6549, in mean
+    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py", line 12420, in mean
+    return self._stat_function(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py", line 12377, in _stat_function
+    return self._reduce(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/series.py", line 6457, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 404, in new_func
+    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 720, in nanmean
+    the_sum = _ensure_numeric(the_sum)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 1701, in _ensure_numeric
+    raise TypeError(f"Could not convert string '{x}' to numeric")
+TypeError: Could not convert string '3003003004003004003003503001503003003503004003003003002504003005005004504004002504005003002004004005050020020035060025040040040025010040040030040020040040050500200600200200400350600250500400300400300500400350500350300150200300300150650400300300400300400150200300250500300400400500150650150300200500300350350400350400300500250400400400300400200500750500500400400200400300300500500400400200400250750400300500400400300300500400400250300400400400200400200250350400200500400200250300100400200300350400400200500300300400500600400250600400400300300450150400500500450300500600500400450400250300300400500250400500500400400300400300600500700600450300600400200500500400500500350350500450400500400350400400300600200300300500300300400400500300300400400350600200450500500400500300200400500300500300300400200300250400400400300500200300400500300350350300600600300400300400200200250300350400400250400200200250400100500400300400300350400200600250400600400500350200200200350400400300500250400200300300600200400350500400250200400200350200300500400500400300300500500250300400350500100400500400400300500200150350500100400300250250500400200100300400200150400500600300500560400400300500400150400400350500500300300400400400500500300200400600500300100350400500300150400400400400400500200600400600300500300500600400500400500400400250300500300200350300100450600200500500400250400300200350400500400300600360450300300400500400100100200500500500400350500350200450400150400400300300400500200350300300300500650350600500200500150250350400350350400300350500300450500200200300350300500300300500650350600600800150500500350500500450500400400150200400350300200350600250500200300500500400400500200200350400300200500400350600250500450800100400400200500600150500450250400500300300500400400600400150250500400400300500200350500600400400300200400400500500200350400500200250350500500400600150250500400500500500400100400200400300350500200500400500500400150600200400250300200400300200350500400500200100500200500200400400450500400600400350300400600400300600300300200300300450600200300400400400200200400500300200200400200300600500350300600300450400200350400450350500400400400400300600400400300500600300200300300200400400400400500400200200300500600300200400200200300300500300500500300200400400500350400400600300400300300400400600300300450400200200300600200200300400500500400400400200300500600400400200200600300200300300600300300450200400500400500350200500450350400400600300400400300400400600500200300300300200500400200400500400400400200300600400200300300300500350350200350150300500300200300500150400250350400200200250350400200200500100150200300600250500300300200150400500350300400250500300150500350200300500400300400500500500400400300250400250300300400200350300500500400500450500500600500400300250400300200400500250300300400300500250300400400150350400500350200200250300400400400200400200250300500100150400300300350500350400200300450300500500200300450300500500450200300500450450500600300400500300400200300100500300300200450400600200300900400500600500100300360400600300300200450300500300300400500500150200200400300400300500200400250500300500150300150400400400200200250300350400200200250250150200350100300150300200500250400400600400300400500750500400300600300300500500750400400300500400600500400600300600300300500500400500500500250450400500300500600450400600400400150450600500250500500500300150500400250400450150450250400400300500600500700250500400600500500500600500300600600' to numeric
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 75, in <module>
+    cost_df = filters_df.groupby(by = 'rest_type', as_index = False)['approx_cost(for two people)'].mean()
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 2452, in mean
+    result = self._cython_agg_general(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1998, in _cython_agg_general
+    new_mgr = data.grouped_reduce(array_func)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/internals/base.py", line 367, in grouped_reduce
+    res = func(arr)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1995, in array_func
+    result = self._agg_py_fallback(how, values, ndim=data.ndim, alt=alt)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1946, in _agg_py_fallback
+    raise type(err)(msg) from err
+TypeError: agg function failed [how->mean,dtype->object]
+2024-10-02 14:49:07.609 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 82, in <module>
+    st.plotly_charts(fig1, use_container_width = True)
+AttributeError: module 'streamlit' has no attribute 'plotly_charts'
+2024-10-02 15:30:34.566 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 102, in <module>
+    filters_df['approx_cost(for two people)'] = pd.to_numeric(filters_df['votes'].str.replace(',', ''), errors='coerce')
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py", line 6299, in __getattr__
+    return object.__getattribute__(self, name)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/accessor.py", line 224, in __get__
+    accessor_obj = self._accessor(obj)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/strings/accessor.py", line 191, in __init__
+    self._inferred_dtype = self._validate(data)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/strings/accessor.py", line 245, in _validate
+    raise AttributeError("Can only use .str accessor with string values!")
+AttributeError: Can only use .str accessor with string values!
+2024-10-02 15:31:53.257 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 109, in <module>
+    fig1 = px.bar(cost_df,
+TypeError: bar() got an unexpected keyword argument 'values'
+2024-10-02 16:45:48.325 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 114, in <module>
+    res_summary = pd.pivot_table(data = cols,
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/reshape/pivot.py", line 102, in pivot_table
+    table = __internal_pivot_table(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/reshape/pivot.py", line 147, in __internal_pivot_table
+    if i not in data:
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py", line 2080, in __contains__
+    return key in self._info_axis
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/indexes/base.py", line 5358, in __contains__
+    hash(key)
+TypeError: unhashable type: 'numpy.ndarray'
+2024-10-02 16:46:43.355 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 114, in <module>
+    res_summary = pd.pivot_table(data = cols,
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/reshape/pivot.py", line 102, in pivot_table
+    table = __internal_pivot_table(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/reshape/pivot.py", line 172, in __internal_pivot_table
+    grouped = data.groupby(keys, observed=observed_bool, sort=sort, dropna=dropna)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/frame.py", line 9183, in groupby
+    return DataFrameGroupBy(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1329, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/grouper.py", line 1043, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'name'
+2024-10-02 16:49:55.852 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1942, in _agg_py_fallback
+    res_values = self._grouper.agg_series(ser, alt, preserve_dtype=True)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/ops.py", line 864, in agg_series
+    result = self._aggregate_series_pure_python(obj, func)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/ops.py", line 885, in _aggregate_series_pure_python
+    res = func(group)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 2454, in <lambda>
+    alt=lambda x: Series(x, copy=False).mean(numeric_only=numeric_only),
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/series.py", line 6549, in mean
+    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py", line 12420, in mean
+    return self._stat_function(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py", line 12377, in _stat_function
+    return self._reduce(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/series.py", line 6457, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 404, in new_func
+    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 720, in nanmean
+    the_sum = _ensure_numeric(the_sum)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/nanops.py", line 1701, in _ensure_numeric
+    raise TypeError(f"Could not convert string '{x}' to numeric")
+TypeError: Could not convert string 'NoNo' to numeric
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 114, in <module>
+    res_summary = pd.pivot_table(data = cols,
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/reshape/pivot.py", line 102, in pivot_table
+    table = __internal_pivot_table(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/reshape/pivot.py", line 183, in __internal_pivot_table
+    agged = grouped.agg(aggfunc)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/generic.py", line 1432, in aggregate
+    result = op.agg()
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/apply.py", line 187, in agg
+    return self.apply_str()
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/apply.py", line 603, in apply_str
+    return self._apply_str(obj, func, *self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/apply.py", line 693, in _apply_str
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 2452, in mean
+    result = self._cython_agg_general(
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1998, in _cython_agg_general
+    new_mgr = data.grouped_reduce(array_func)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/internals/managers.py", line 1469, in grouped_reduce
+    applied = sb.apply(func)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/internals/blocks.py", line 393, in apply
+    result = func(self.values, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1995, in array_func
+    result = self._agg_py_fallback(how, values, ndim=data.ndim, alt=alt)
+  File "/usr/local/lib/python3.10/dist-packages/pandas/core/groupby/groupby.py", line 1946, in _agg_py_fallback
+    raise type(err)(msg) from err
+TypeError: agg function failed [how->mean,dtype->object]
+2024-10-02 16:53:02.907 Serialization of dataframe to Arrow table was unsuccessful due to: ('cannot mix list and non-list, non-null values', 'Conversion failed for column address with type object'). Applying automatic fixes for column types to make the dataframe Arrow-compatible.
+2024-10-02 16:53:02.916 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/dataframe_util.py", line 815, in convert_pandas_df_to_arrow_bytes
+    table = pa.Table.from_pandas(df)
+  File "pyarrow/table.pxi", line 4525, in pyarrow.lib.Table.from_pandas
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 624, in dataframe_to_arrays
+    arrays[i] = maybe_fut.result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 598, in convert_column
+    raise e
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 592, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+  File "pyarrow/array.pxi", line 345, in pyarrow.lib.array
+  File "pyarrow/array.pxi", line 85, in pyarrow.lib._ndarray_to_array
+  File "pyarrow/error.pxi", line 91, in pyarrow.lib.check_status
+pyarrow.lib.ArrowInvalid: ('cannot mix list and non-list, non-null values', 'Conversion failed for column address with type object')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 117, in <module>
+    st.write(res_summary.style.background_gradient(cmap = 'Blues'))
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/metrics_util.py", line 410, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/elements/write.py", line 423, in write
+    self.dg.dataframe(arg)
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/metrics_util.py", line 410, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/elements/arrow.py", line 555, in dataframe
+    proto.data = dataframe_util.convert_pandas_df_to_arrow_bytes(data_df)
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/dataframe_util.py", line 824, in convert_pandas_df_to_arrow_bytes
+    table = pa.Table.from_pandas(df)
+  File "pyarrow/table.pxi", line 4525, in pyarrow.lib.Table.from_pandas
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 624, in dataframe_to_arrays
+    arrays[i] = maybe_fut.result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 598, in convert_column
+    raise e
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 592, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+  File "pyarrow/array.pxi", line 345, in pyarrow.lib.array
+  File "pyarrow/array.pxi", line 85, in pyarrow.lib._ndarray_to_array
+  File "pyarrow/error.pxi", line 91, in pyarrow.lib.check_status
+pyarrow.lib.ArrowInvalid: ('cannot mix list and non-list, non-null values', 'Conversion failed for column address with type object')
+2024-10-02 16:59:50.477 Serialization of dataframe to Arrow table was unsuccessful due to: ('cannot mix list and non-list, non-null values', 'Conversion failed for column address with type object'). Applying automatic fixes for column types to make the dataframe Arrow-compatible.
+2024-10-02 16:59:50.485 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/dataframe_util.py", line 815, in convert_pandas_df_to_arrow_bytes
+    table = pa.Table.from_pandas(df)
+  File "pyarrow/table.pxi", line 4525, in pyarrow.lib.Table.from_pandas
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 624, in dataframe_to_arrays
+    arrays[i] = maybe_fut.result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 598, in convert_column
+    raise e
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 592, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+  File "pyarrow/array.pxi", line 345, in pyarrow.lib.array
+  File "pyarrow/array.pxi", line 85, in pyarrow.lib._ndarray_to_array
+  File "pyarrow/error.pxi", line 91, in pyarrow.lib.check_status
+pyarrow.lib.ArrowInvalid: ('cannot mix list and non-list, non-null values', 'Conversion failed for column address with type object')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 117, in <module>
+    st.write(res_summary.style.background_gradient(cmap = 'Blues'))
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/metrics_util.py", line 410, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/elements/write.py", line 423, in write
+    self.dg.dataframe(arg)
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/metrics_util.py", line 410, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/elements/arrow.py", line 555, in dataframe
+    proto.data = dataframe_util.convert_pandas_df_to_arrow_bytes(data_df)
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/dataframe_util.py", line 824, in convert_pandas_df_to_arrow_bytes
+    table = pa.Table.from_pandas(df)
+  File "pyarrow/table.pxi", line 4525, in pyarrow.lib.Table.from_pandas
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 624, in dataframe_to_arrays
+    arrays[i] = maybe_fut.result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
+    return self.__get_result()
+  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 598, in convert_column
+    raise e
+  File "/usr/local/lib/python3.10/dist-packages/pyarrow/pandas_compat.py", line 592, in convert_column
+    result = pa.array(col, type=type_, from_pandas=True, safe=safe)
+  File "pyarrow/array.pxi", line 345, in pyarrow.lib.array
+  File "pyarrow/array.pxi", line 85, in pyarrow.lib._ndarray_to_array
+  File "pyarrow/error.pxi", line 91, in pyarrow.lib.check_status
+pyarrow.lib.ArrowInvalid: ('cannot mix list and non-list, non-null values', 'Conversion failed for column address with type object')
+2024-10-02 17:09:41.799 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 146, in <module>
+    fig4 = px.treemap(filters_df, path = ['listed_in(city)', 'rest_type', 'listed_in(type)'],
+  File "/usr/local/lib/python3.10/dist-packages/plotly/express/_chart_types.py", line 1738, in treemap
+    return make_figure(
+  File "/usr/local/lib/python3.10/dist-packages/plotly/express/_core.py", line 2117, in make_figure
+    args = build_dataframe(args, constructor)
+  File "/usr/local/lib/python3.10/dist-packages/plotly/express/_core.py", line 1513, in build_dataframe
+    df_output, wide_id_vars = process_args_into_dataframe(
+  File "/usr/local/lib/python3.10/dist-packages/plotly/express/_core.py", line 1234, in process_args_into_dataframe
+    raise ValueError(err_msg)
+ValueError: Value of 'color' is not the name of a column in 'data_frame'. Expected one of ['url', 'address', 'name', 'online_order', 'book_table', 'rate', 'votes', 'phone', 'location', 'rest_type', 'dish_liked', 'cuisines', 'approx_cost(for two people)', 'reviews_list', 'menu_item', 'listed_in(type)', 'listed_in(city)'] but received: Sub-rest_type
+2024-10-02 17:10:39.856 Uncaught app exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/exec_code.py", line 88, in exec_func_with_error_handling
+    result = func()
+  File "/usr/local/lib/python3.10/dist-packages/streamlit/runtime/scriptrunner/script_runner.py", line 579, in code_to_exec
+    exec(code, module.__dict__)
+  File "/content/app.py", line 146, in <module>
+    fig4 = px.treemap(filters_df, path = ['listed_in(city)', 'rest_type', 'listed_in(type)'],
+  File "/usr/local/lib/python3.10/dist-packages/plotly/express/_chart_types.py", line 1738, in treemap
+    return make_figure(
+  File "/usr/local/lib/python3.10/dist-packages/plotly/express/_core.py", line 2119, in make_figure
+    args = process_dataframe_hierarchy(args)
+  File "/usr/local/lib/python3.10/dist-packages/plotly/express/_core.py", line 1653, in process_dataframe_hierarchy
+    _check_dataframe_all_leaves(df[path[::-1]])
+  File "/usr/local/lib/python3.10/dist-packages/plotly/express/_core.py", line 1632, in _check_dataframe_all_leaves
+    raise ValueError(
+ValueError: ('None entries cannot have not-None children', listed_in(city)         BTM
+rest_type               nan
+listed_in(type)    Delivery
+Name: 8557, dtype: object)
